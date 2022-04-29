@@ -33,6 +33,32 @@ body {
   margin: 0;
 }
 
+/* mission styles */
+#mission {
+  margin-bottom: 3rem;
+}
+.missionText {
+  display: block;
+  line-height: 1.7;
+  text-align: justify;
+}
+#logo {
+  shape-outside: polygon(
+    -0.35% 2%,
+    55.75% -2%,
+    35.2% 102%,
+    33.8% 104%,
+    23.35% 103%,
+    1.05% 102%,
+    0.7% 82%
+  );
+  float: left;
+  max-height: 100px;
+  /* block to logo img and text both so that they stack on top of each other on mobile screens */
+  display: block;
+}
+
+/* mission styles end */
 section {
   max-width: 1200px;
   margin: 0 auto;
@@ -125,6 +151,7 @@ figure img {
   border-color: var(--color8);
   color: var(--color8);
 }
+
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
@@ -142,13 +169,13 @@ figure img {
   }
 }
 
-/* At this breakpoint, transition to 3 figures per line */
+/* desktop layout with 3 figures on row */
 
 @media (min-width: 800px) {
-    section h2{
-        margin-left: 100px;
-    }
-    section li{
-        flex-basis: 32.6%;
-    }
+  section h2 {
+    margin-left: 100px;
+  }
+  section li {
+    flex-basis: 32.6%;
+  }
 }
