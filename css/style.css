@@ -32,33 +32,56 @@ body {
   padding: 0;
   margin: 0;
 }
-
-/* mission styles */
-#mission {
-  margin-bottom: 3rem;
+/* header */
+.header {
+  background-color: var(--color5);
 }
-.missionText {
+header {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* nav styles -universal across breakpoints */
+nav ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+nav li {
+  flex-basis: 48%;
+  margin-bottom: 0.5rem;
+}
+nav li:first-child {
+  flex-basis: 100%;
+  text-align: center;
+  
+}
+nav a {
+  font-size: 1.2rem;
   display: block;
-  line-height: 1.7;
-  text-align: justify;
-}
-#logo {
-  shape-outside: polygon(
-    -0.35% 2%,
-    55.75% -2%,
-    35.2% 102%,
-    33.8% 104%,
-    23.35% 103%,
-    1.05% 102%,
-    0.7% 82%
-  );
-  float: left;
-  max-height: 100px;
-  /* block to logo img and text both so that they stack on top of each other on mobile screens */
-  display: block;
+  text-decoration: none;
+  color: var(--color5);
+  background-color: var(--color10);
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-/* mission styles end */
+nav li:first-child a{
+  background-color: transparent;
+}
+
+nav a:hover{
+  background-color: var(--color1);
+  color: var(--color6);
+}
+/* header end */
 section {
   max-width: 1200px;
   margin: 0 auto;
@@ -69,49 +92,53 @@ section h2 {
   font-size: 2.5rem;
 }
 
-/* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. */
-
 section ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
+
+/* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
+
+Spelled out the individual border styles so border-color could go elsewhere. Styling is the same for all borders except the color. */
+
 figure {
   margin: 0 0 0.5rem 0;
   padding: 0;
+  max-height: 400px;
   overflow: hidden;
   position: relative;
-  max-height: 400px;
   border-width: 10px;
   border-style: solid;
   border-radius: 5px;
 }
-figcaption {
-  position: absolute;
-  background: #e6e8ec;
-  font-size: 1.875rem;
-  padding: 0;
-  bottom: 0;
-  opacity: 0.8;
-  width: 100%;
-}
-/* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
-figcaption a {
-  display: block;
-  padding: 1rem;
-  text-decoration: none;
-  color: var(--color1);
-}
-/* reduces the top margin on the h2, bottom on the p, and leaves a 0.5rem gap between the two */
-figcaption * {
-  margin: 0.5rem;
-}
+
 /* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
+
 figure img {
   margin-bottom: -4px;
   width: 100%;
   object-fit: cover;
   object-position: 0 -150px;
+}
+
+figcaption {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.875rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
+
+figcaption a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--color1);
 }
 
 /* style is doing double duty, styling border color and hover color. Only one declaration usually applies though.  */
@@ -152,6 +179,50 @@ figure img {
   color: var(--color8);
 }
 
+/* mission styles */
+
+#mission {
+  margin-bottom: 3rem;
+}
+
+.missiontext {
+  display: block;
+  line-height: 1.7;
+}
+
+.missionimg {
+  max-height: 100px;
+  display: block;
+}
+#collections {
+  margin-bottom: 3rem;
+}
+/* footer */
+.footer {
+  background-color: var(--color5);
+}
+footer {
+  padding: 3rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.socialLinks {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.socialLinks img {
+  width: 32px;
+}
+footer address ul {
+  list-style-type: none;
+}
+/* footer end */
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
@@ -167,15 +238,62 @@ figure img {
   figure img {
     object-position: 0;
   }
+  /* display: flow-root clears the float!!!! max-width keeps the text line length shorter */
+  .missiontext {
+    display: flow-root;
+    max-width: 900px;
+  }
+  /* working with an image with a wide width so we have flexibility to set the shape-outside polygon points where we want. The edges of the image limit their placement. In Firefox, you can draw with shape-outside in browser tools */
+  .missionimg {
+    float: left;
+    shape-outside: polygon(
+      35.84% 94.87%,
+      34.64% 87.05%,
+      51.64% 4.06%,
+      55.1% 2.38%
+    );
+    max-height: 211px;
+  }
+  nav ul {
+    justify-content: center;
+    gap: 1.2em;
+  }
+  nav li {
+    flex-basis: auto;
+    margin-bottom: 0;
+  }
+  nav a {
+    color: var(--color1);
+    background-color: transparent;
+  }
+  nav a:hover {
+    color: var(--color2);
+    background-color: transparent;
+  }
 }
-
-/* desktop layout with 3 figures on row */
 
 @media (min-width: 800px) {
   section h2 {
     margin-left: 100px;
   }
   section li {
-    flex-basis: 32.6%;
+    flex-basis: 32.5%;
+  }
+  /* nav style - logo in the center */
+  nav ul {
+    justify-content: flex-end;
+  }
+  nav li:first-child {
+    flex-basis: auto;
+    margin: 0 auto;
+    order: 2;
+  }
+  nav li:nth-child(2),
+  nav li:nth-child(3) {
+    order: 1;
+  }
+  nav li:nth-child(4),
+  nav li:nth-child(5) {
+    order: 3;
   }
 }
