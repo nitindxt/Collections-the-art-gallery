@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collections</title>
+    <title>Collections-The Gallery of Art</title>
     <link href="css/style.css" rel="stylesheet" />
   </head>
 
@@ -28,6 +28,14 @@
         </nav>
       </header>
     </div>
+    <section id="hero">
+      <picture>
+        <source srcset="./img/hero-1200.png" media="(min-width: 839px" />
+        <source srcset="./img/hero-838.png" media="(min-width: 301px" />
+        <img src="./img/hero-300.png" alt="hero image banner" />
+      </picture>
+    </section>
+
     <section id="mission">
       <h2>Our Mission</h2>
       <div class="missiontext">
@@ -46,6 +54,25 @@
         </p>
       </div>
     </section>
+
+    <section id="featured">
+      <h2>Featured Print</h2>
+      <figure class="color6">
+        <img
+          sizes="(min-width: 300px) 33.3vw, 100vw"
+          srcset="
+            ./img/too-cool-300.jpg   300w,
+            ./img/too-cool-740.jpg   740w,
+            ./img/too-cool-1058.jpg 1058w,
+            ./img/too-cool-1200.jpg 1200w
+          "
+          src="./img/too-cool-1200.jpg"
+          alt="Closeup of woman in sunglasses showing eyes, nose and fingers over mouth."
+        />
+        <figcaption><a href="#">Too Cool for School</a></figcaption>
+      </figure>
+    </section>
+
     <section id="collections">
       <h2>Collections</h2>
       <ul>
@@ -99,6 +126,7 @@
         </li>
       </ul>
     </section>
+
     <div class="footer">
       <footer>
         <div class="social">
