@@ -32,6 +32,21 @@ body {
   padding: 0;
   margin: 0;
 }
+section {
+  max-width: 1200px;
+  margin: 0 auto 5rem auto;
+  padding: 0 1rem;
+}
+
+section h2 {
+  font-size: 2.5rem;
+}
+
+section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 /* header */
 .header {
   background-color: var(--color5);
@@ -46,8 +61,7 @@ nav ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: center;
-  min-height: 100px;
+  align-items: space-between;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -61,15 +75,14 @@ nav li:first-child {
   text-align: center;
 }
 nav a {
-  font-size: 1.2rem;
-  display: block;
   text-decoration: none;
-  color: var(--color5);
-  background-color: var(--color10);
+  font-size: 1.2rem;
+  color: white;
+  display: block;
   padding: 0.5rem;
-  border-radius: 5px;
   text-align: center;
-  margin-bottom: 0.5rem;
+  background-color: var(--color10);
+  border-radius: 5px;
 }
 
 nav li:first-child a {
@@ -78,7 +91,7 @@ nav li:first-child a {
 
 nav a:hover {
   background-color: var(--color1);
-  color: var(--color6);
+  color: var(--color5);
 }
 /* header end */
 
@@ -96,31 +109,6 @@ nav a:hover {
   max-height: 454px;
 }
 /* hero image end */
-/* featured image styles */
-
-#featured figure {
-  max-height: 650px;
-}
-
-#featured img {
-  object-position: 0;
-}
-
-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-section h2 {
-  font-size: 2.5rem;
-}
-
-section ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
 
 /* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
 
@@ -129,6 +117,7 @@ Spelled out the individual border styles so border-color could go elsewhere. Sty
 figure {
   margin: 0 0 0.5rem 0;
   padding: 0;
+  height: 100%;
   max-height: 400px;
   overflow: hidden;
   position: relative;
@@ -164,6 +153,21 @@ figcaption a {
   text-decoration: none;
   color: var(--color1);
 }
+/* green stripe for popular images */
+.popular {
+  background-color: var(--color2);
+  color: white;
+  padding: 1rem 0 2rem 0;
+}
+/* featured image styles */
+
+#featured figure {
+  max-height: 650px;
+}
+
+#featured img {
+  object-position: 0;
+}
 
 /* style is doing double duty, styling border color and hover color. Only one declaration usually applies though.  */
 
@@ -184,7 +188,11 @@ figcaption a {
   border-color: var(--color4);
   color: var(--color4);
 }
-
+.color5,
+.color5 a:hover {
+  border-color: var(--color5);
+  color: var(--color5);
+}
 .color6,
 .color6 a:hover {
   border-color: var(--color6);
@@ -199,10 +207,14 @@ figcaption a {
 
 .color8,
 .color8 a:hover {
-  border-color: var(--color8);
+  border-color: var(--color3);
   color: var(--color8);
 }
-
+.color9,
+.color9 a:hover {
+  border-color: var(--color9);
+  color: var(--color9);
+}
 /* mission styles */
 
 #mission {
@@ -218,6 +230,7 @@ figcaption a {
   max-height: 100px;
   display: block;
 }
+
 #collections {
   margin-bottom: 3rem;
 }
@@ -250,6 +263,10 @@ footer address ul {
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
+  /* header/nav layout */
+  header {
+    padding: 3rem;
+  }
   section ul {
     display: flex;
     flex-flow: row wrap;
@@ -289,10 +306,18 @@ footer address ul {
   nav a {
     color: var(--color1);
     background-color: transparent;
+    padding: 0;
   }
   nav a:hover {
     color: var(--color2);
     background-color: transparent;
+  }
+
+  .popular li:last-child {
+    flex-basis: 100%;
+  }
+  .popular li:last-child img {
+    object-position: 0 -350px;
   }
 }
 
@@ -300,7 +325,8 @@ footer address ul {
   section h2 {
     margin-left: 100px;
   }
-  section li {
+  section li,
+  .popular li:last-child {
     flex-basis: 32.5%;
   }
   /* nav style - logo in the center */
@@ -319,5 +345,9 @@ footer address ul {
   nav li:nth-child(4),
   nav li:nth-child(5) {
     order: 3;
+  }
+
+  .popular li:last-child img {
+    object-position: 0;
   }
 }
