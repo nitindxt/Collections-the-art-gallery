@@ -74,6 +74,10 @@ nav li:first-child {
   flex-basis: 100%;
   text-align: center;
 }
+nav li:first-child a {
+  background-color: transparent;
+}
+
 nav a {
   text-decoration: none;
   font-size: 1.2rem;
@@ -83,10 +87,6 @@ nav a {
   text-align: center;
   background-color: var(--color10);
   border-radius: 5px;
-}
-
-nav li:first-child a {
-  background-color: transparent;
 }
 
 nav a:hover {
@@ -133,6 +133,10 @@ figure img {
   width: 100%;
   object-fit: cover;
   object-position: 0 -150px;
+}
+#popArt figure img {
+  object-position: 0;
+  object-fit: cover;
 }
 
 figcaption {
@@ -207,7 +211,7 @@ figcaption a {
 
 .color8,
 .color8 a:hover {
-  border-color: var(--color3);
+  border-color: var(--color8);
   color: var(--color8);
 }
 .color9,
@@ -259,6 +263,9 @@ footer {
 footer address ul {
   list-style-type: none;
 }
+#popArt li:nth-child(5) figure img {
+  object-position: 0 -350px;
+}
 /* footer end */
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
@@ -269,16 +276,14 @@ footer address ul {
   }
   section ul {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row-reverse wrap;
     justify-content: space-between;
+    align-items: center;
   }
   section li {
     flex-basis: 49.5%;
   }
-  /* turn off object position, inherit object-fit: cover */
-  figure img {
-    object-position: 0;
-  }
+
   /* display: flow-root clears the float!!!! max-width keeps the text line length shorter */
   .missiontext {
     display: flow-root;
@@ -319,6 +324,36 @@ footer address ul {
   .popular li:last-child img {
     object-position: 0 -350px;
   }
+
+  /* turn off object position, inherit object-fit: cover */
+  figure img {
+    object-position: 0;
+  }
+  figure {
+    max-height: 100%;
+  }
+  /* pop art  */
+  #popArt ul {
+    display: grid;
+    grid: repeat(5, 1fr) / repeat(3, 1fr);
+    gap: 10px;
+  }
+  #popArt li:nth-child(1),
+  #popArt li:nth-child(4),
+  #popArt li:nth-child(8) {
+    grid-column: span 2;
+  }
+  #popArt li:nth-child(5) {
+    grid-row: span 2;
+  }
+  #popArt li:nth-child(5) figure img {
+    object-position: 0;
+  }
+  #popArt li:last-child {
+    grid-column: span 3;
+  }
+
+  /* pop art end */
 }
 
 @media (min-width: 800px) {
